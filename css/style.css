@@ -1,0 +1,512 @@
+/* ============================================================
+   Yusuke Aoki - Academic Personal Website
+   ============================================================ */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-heading: #1a1a2e;
+  --color-accent: #16697a;
+  --color-accent-hover: #0d4f5e;
+  --color-header-bg: #1a1a2e;
+  --color-header-text: #ffffff;
+  --color-border: #e0e0e0;
+  --color-section-bg: #f8f9fa;
+  --color-card-bg: #ffffff;
+  --font-sans: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --max-width: 960px;
+  --header-height: 60px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Header / Navigation --- */
+.site-header {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.site-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-header-text);
+  white-space: nowrap;
+}
+
+.site-title a {
+  color: var(--color-header-text);
+  text-decoration: none;
+}
+
+.site-title a:hover {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: var(--color-header-text);
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+/* Hamburger menu */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-header-text);
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Main Content --- */
+.main-content {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px;
+  width: 100%;
+}
+
+/* --- Home Page: Profile Section --- */
+.profile-section {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.profile-photo-wrapper {
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid var(--color-border);
+  background-color: var(--color-section-bg);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h1 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-heading);
+  margin-bottom: 12px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-heading);
+  color: #fff;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background-color: var(--color-accent);
+  text-decoration: none;
+}
+
+.social-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.profile-info p {
+  margin-bottom: 14px;
+  color: var(--color-text);
+}
+
+.contact-info {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+}
+
+.contact-info p {
+  color: var(--color-text-light);
+}
+
+/* --- Page Headers --- */
+.page-header {
+  margin-bottom: 36px;
+}
+
+.page-header h1 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-heading);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+/* --- Section Headings --- */
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-heading);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.subsection-heading {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-top: 28px;
+  margin-bottom: 16px;
+}
+
+/* --- Research Items --- */
+.research-item {
+  margin-bottom: 24px;
+  padding-left: 16px;
+  border-left: 3px solid var(--color-accent);
+}
+
+.research-item .paper-title {
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 4px;
+}
+
+.research-item .paper-title a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.research-item .authors {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-bottom: 2px;
+}
+
+.research-item .venue {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+/* --- Presentation Items --- */
+.presentation-item {
+  margin-bottom: 28px;
+}
+
+.presentation-item .paper-title {
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 8px;
+}
+
+.presentation-item .paper-title a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.presentation-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.presentation-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.presentation-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 4px;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+.presentation-category {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+/* --- Media Page --- */
+.media-outlets {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+.media-outlets .italic {
+  font-style: italic;
+}
+
+.contributions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contributions-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contributions-list li:last-child {
+  border-bottom: none;
+}
+
+.contributions-list .contrib-title {
+  font-weight: 600;
+  color: var(--color-heading);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.contributions-list .contrib-title a {
+  color: var(--color-accent);
+}
+
+.contributions-list .contrib-meta {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* --- Footer --- */
+.site-footer {
+  background-color: var(--color-header-bg);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 20px 24px;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* --- CV Floating Button --- */
+.cv-button {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+  z-index: 999;
+}
+
+.cv-button:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #fff;
+}
+
+.cv-button svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.cv-button .cv-tooltip {
+  position: absolute;
+  right: 68px;
+  background-color: var(--color-heading);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.cv-button:hover .cv-tooltip {
+  opacity: 1;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-header-bg);
+    flex-direction: column;
+    padding: 16px 24px;
+    gap: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 14px;
+  }
+
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .profile-photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .main-content {
+    padding: 32px 16px;
+  }
+
+  .site-title {
+    font-size: 1rem;
+  }
+
+  .cv-button {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-heading {
+    font-size: 1.25rem;
+  }
+}
