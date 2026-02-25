@@ -5,7 +5,7 @@ A static personal website hosted on GitHub Pages. Built with plain HTML, CSS, an
 ## File Structure
 
 ```
-yaoki.github.io/
+yusuke-aoki-econ.github.io/
 ├── index.html          # Home page
 ├── research.html       # Research page
 ├── presentation.html   # Presentation page
@@ -15,7 +15,8 @@ yaoki.github.io/
 ├── js/
 │   └── main.js         # Navigation and interactivity
 ├── images/
-│   └── profile.jpg     # Profile photo (replace with your own)
+│   ├── profile.jpg     # Profile photo
+│   └── ogp.png         # OGP share image (1200x630)
 ├── files/
 │   └── cv.pdf          # CV PDF (add your own)
 ├── .nojekyll           # Disables Jekyll processing
@@ -30,20 +31,9 @@ yaoki.github.io/
 4. Choose `main` branch and `/ (root)` folder, then click **Save**.
 5. Your site will be live at `https://<username>.github.io/` within a few minutes.
 
-## Setting Up a Custom Domain
+## Site URL
 
-1. In your repository's **Settings** > **Pages**, enter your custom domain under **Custom domain**.
-2. Add the following DNS records with your domain registrar:
-   - For apex domain (e.g., `yourdomain.com`): Add `A` records pointing to GitHub's IPs:
-     ```
-     185.199.108.153
-     185.199.109.153
-     185.199.110.153
-     185.199.111.153
-     ```
-   - For subdomain (e.g., `www.yourdomain.com`): Add a `CNAME` record pointing to `<username>.github.io`.
-3. Check "Enforce HTTPS" in the Pages settings after DNS propagation.
-4. A `CNAME` file will be automatically created in your repository.
+The site is hosted at `https://yusuke-aoki-econ.github.io/`.
 
 ## Updating Content
 
@@ -128,13 +118,7 @@ Replace `GA_MEASUREMENT_ID` with your actual measurement ID (e.g., `G-XXXXXXXXXX
 
 ## TODO Checklist
 
-Search for `TODO` comments across the HTML files to find all placeholder links and items that need real URLs:
-- [ ] X (Twitter) profile URL
-- [ ] Working paper link (BIS Working Paper No 1269)
-- [ ] Conference and workshop URLs on the Presentation page
-- [ ] Indeed Japan press release page URL
-- [ ] Contribution article URLs on the Media page
-- [ ] Profile photo (`images/profile.jpg`)
+Search for `TODO` comments across the HTML files to find all placeholder items:
 - [ ] CV PDF (`files/cv.pdf`)
-- [ ] Google Analytics measurement ID
-- [ ] OGP image URL
+- [ ] Google Analytics measurement ID (GA4)
+- [ ] OGP share image — replace `images/ogp.png` with a custom design if desired
