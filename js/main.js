@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // --- Active Navigation Highlight ---
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(function (link) {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    var linkPage = link.getAttribute('href').split('?')[0];
+    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
       link.classList.add('active');
     }
   });
